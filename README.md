@@ -81,25 +81,17 @@ Before you are able to send mail, you have to be on an active subscription plan,
 
 <br>
 <strong>Reciever Email Document Template</strong>
-<br>
-email
-<br>
-ujanet@kentel.buzz
-<br>
-1111@gmail.com
-<br>
-2222@gmail.com
-<br>
-3333@gmail.com
-<br>
-4444@gmail.com
-<br>
+|email||
+|ujanet@kentel.buzz|
+|1111@gmail.com|
+|2222@gmail.com|
+|3333@gmail.com|
+|4444@gmail.com|
 
+<br>
 <strong>Sender Email and Password Document Template</strong>
-<br>
-email,password
-<br>
-d360@gmail.com,XXXXXX
+|email,password|
+|d360@gmail.com,XXXXXX|
 
 - You can have as many sender and receiver emails, the backend algorithm is optimized to handled the requst properly.
 
