@@ -12,7 +12,7 @@ sudo apt-get install redis-server python-dev3 python3-pip git
 redis-cli -v #verfiy the version
 ```
 
-# Download this code to your machine
+## Download this code to your machine
 
 - Use this command below to clone this git repo on your machine
 
@@ -77,23 +77,30 @@ Before you are able to send mail, you have to be on an active subscription plan,
 <p align="center"><img width="100%" src="https://github.com/iMiebaka/ProjectRaven/blob/main/subscription_page.png" alt="make_payment"></p>
 
 - To send any email, the sender and reciever credential should be in a document files. Document recognised by this app should either be a .csv and .xlmx files extension. This Document files should be seperate from each other and must have a header tag (else an error will be raised)
+
+<br>
 <strong>Reciever Email Document Template</strong>
 <br>
 email
+<br>
 ujanet@kentel.buzz
+<br>
 1111@gmail.com
+<br>
 2222@gmail.com
+<br>
 3333@gmail.com
+<br>
 4444@gmail.com
+<br>
 
 <strong>Sender Email and Password Document Template</strong>
 <br>
 email,password
+<br>
 d360@gmail.com,XXXXXX
 
-- You can have as many sender and receiver emails, the backend algorithm is optimized to handled the requst properly
-  <br>
-
+- You can have as many sender and receiver emails, the backend algorithm is optimized to handled the requst properly.
 
 ## Hosting
 
