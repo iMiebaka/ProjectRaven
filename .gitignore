@@ -1,2 +1,4 @@
 settings.ini
-
+accounts/migrations/0001_initial.py
+payments/migrations/0001_initial.py
+mailer/migrations/0001_initial.py
