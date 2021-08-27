@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %} Settings {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/settings.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/others.css' %}">
+{% endblock %}
+
+
+{% block page_content %}
+<!-- SETTINGS SECTION START -->
+<section id="profileSettings" class="cmp-bor-rad">
+    <form action="{% url 'accounts:settings' %}" method="POST" class="row rounded p-4" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="col-md-12 mb-4">
+            <div class="cmp-com-hdr-tit">Edit Profile</div>
+        </div>
+
+        <div class="mb-3 col-md-6 cmp-inu-lab">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" class="form-control" name="first_name" id="exampleInputEmail1"
+                value="{% if user.first_name != None %} {{user.first_name}}{% endif %}" placeholder="Qavi">
+        </div>
+
+        <div class="mb-3 col-md-6 cmp-inu-lab">
+            <label for="exampleInputEmail1" class="form-label">Last Name</label>
+            <input type="text" class="form-control" name="last_name" id="exampleInputEmail1"
+                value="{% if user.last_name != None %} {{user.last_name}}{% endif %}" placeholder="Your surname">
+        </div>
+
+        <div class="mb-3 col-md-6 cmp-inu-lab">
+            <label for="exampleInputEmail1" class="form-label">Instagram Acount</label>
+            <input type="text" class="form-control" name="instagram" id="exampleInputEmail1"
+                value="{% if user.profile.instagram != None %} {{user.profile.instagram}}{% endif %}"
+                placeholder="xyz@instagram.com">
+        </div>
+
+        <div class="mb-3 col-md-6 cmp-inu-lab">
+            <label for="exampleInputEmail1" class="form-label">Phone</label>
+            <input type="email" class="form-control" name="phone_number" id="exampleInputEmail1"
+                value="{% if user.profile.mobile != None %}{{user.profile.mobile}}{% endif %}"
+                placeholder="03XXXXXXXXX">
+        </div>
+
+        <div class="mb-3 col-md-6 cmp-inu-lab">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" id="exampleInputEmail1"
+                value="{% if user.username != None %}{{user.username}}{% endif %}" placeholder="You Username please">
+        </div>
+
+        <!--             <div class="mb-3 col-md-6 cmp-inu-lab">
+            <label for="exampleInputEmail1" class="form-label">Photo</label>
+            <input type="file" class="form-control" name="cover_image" id="exampleInputEmail1" value="{% if user.profile.cover_image != None %}{{user.profile.cover_image}}{% endif %}" accept="image/*">
+        </div> -->
+
+        <div class="mb-3 col-md-6 cmp-inu-lab">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="text" class="form-control" name="email" id="exampleInputEmail1"
+                value="{% if user.email != None %}{{user.email}}{% endif %}" placeholder="Your Email please!">
+        </div>
+        <div class="mb-3 col-md-6">
+            <button style="margin-top: 32px !important;" type="submit" class="cmp-upt-btn">Update</button>
+        </div>
+    </form>
+    <div class="table cmp-bor-rad">
+        <div class="mb-3 col-md-12 cmp-inu-lab">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Transaction Date</th>
+                        <th>Payment Platform</th>
+                        <th>Receipt ID</th>
+                        <th>Status</th>
+                        <th>Credit Email</th>
+                        <th>Email Balance</th>
+                        <th>Terminated By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for h in payment_history %}
+                    <tr>
+                        <td>{{h.sub_option.name}}</td>
+                        <td>{{h.created_on}}</td>
+                        <td>{{h.payment_platform_name}}</td>
+                        <td>{{h.customer_payment_reciept}}</td>
+                        <td>{{h.receipt_status}}</td>
+                        <td>{{h.email_amount}}</td>
+                        <td>{{h.last_email_amount}}</td>
+                        {% if h.un_sub_hint is user %}
+                        <td>{{Self}}</td>
+                        {% else %}
+                        {% if h.un_sub_hint.is_superuser %}
+                        <td>{{Admin}}</td>
+                        {% else %}
+                        <td>{{h.un_sub_hint}}</td>
+                        {% endif %}
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<!--Container Main end-->
+{% endblock %}

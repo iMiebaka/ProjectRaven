@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap5.min.css' %}" />
+
+  {% if debug is True %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap5.min.css' %}" />
+  {% else %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
+  {% endif %}
+
+
+  <title>Reset Account</title>
+</head>
+
+<body>
+  <!-- LOGIN SECTION CODE -->
+  <section id="loginSection" class="d-md-none my-auto">
+    <form method="POST" id="loginForm" class="row rounded mx-auto my-auto" action="{% url 'accounts:reset_account' %}">
+      <div class="w60">
+        <div class="new-account-section">
+          <h1>Reset Account</h1>
+          <p>Resetting your accounts are just clicks away</p>
+          {% csrf_token %}
+          <input type="text" id="signInEmail" name="anon_value" class="mb-1" placeholder="anon" value="2" hidden />
+          <input type="text" id="signInEmail" name="otp_value" placeholder="Enter OTP" />
+          <input type="password" id="signInEmail" name="password" placeholder="Enter New Password" />
+          <button class="btn green-btn">Reset Account</button>
+        </div>
+      </div>
+    </form>
+  </section>
+  <!-- SIGN UP SECTION CODE -->
+  <section id="signupSection" class="d-none d-md-none">
+    <form id="signupForm" class="row rounded p-4 mx-auto" method="POST" action="{% url 'accounts:signup' %}">
+      <div class="
+            col-md-12
+            d-flex
+            justify-content-center
+            align-items-center
+            flex-column
+            mb-4
+          ">
+        <p class="h3">Logo</p>
+        <p class="h3">Welcome to Designing</p>
+        <p>
+          already have an account? <a href="#" id="loginSwapBtn">Login</a>
+        </p>
+      </div>
+      <div class="mb-2 col-md-6">
+        <label for="exampleInputEmail1" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="first_name" placeholder="Qavi" />
+      </div>
+      <div class="mb-2 col-md-6">
+        <label for="exampleInputEmail1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="last_name" placeholder="Your surname" />
+      </div>
+
+      <div class="mb-2 col-md-12">
+        <label for="exampleInputEmail1" class="form-label">Phone</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="03XXXXXXXXX" name="phonenumber" />
+      </div>
+      <div class="mb-2 col-md-12">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="You Username please"
+          name="username" />
+      </div>
+      <div class="mb-2 col-md-12">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Your Email please!"
+          name="email_account" />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+  </section>
+
+  <!-- LOGIN AND SIGN UP SWIPING -->
+  <div id="animLoginAndSignup" class="container">
+    <div class="w40 d-none d-md-block">
+      <div class="signInBox active">
+        <div class="text">
+          <h3>Hello Friend!</h3>
+          <p>You'll be having your account in no time</p>
+        </div>
+        <!-- <button class="btn sign-in-btn">sign in</button> -->
+      </div>
+      <div class="signOutBox">
+        <div class="text">
+          <h3>Hello Friend!</h3>
+          <p>You'll be having your account in no time</p>
+        </div>
+        <button class="btn sign-up-btn">sign up</button>
+      </div>
+    </div>
+    <div class="w60">
+      <div class="new-account-section">
+        <h1>Reset Account</h1>
+        <p>Resetting your accounts are just clicks away</p>
+        <form id="signupForm" class="row rounded p-4 mx-auto" method="POST" action="{% url 'accounts:reset_account' %}">
+          {% csrf_token %}
+          <input type="text" id="signInEmail" name="anon_value" class="mb-1" placeholder="anon" value="2" hidden />
+          <input type="text" id="signInEmail" name="otp_value" placeholder="Enter OTP" />
+          <input type="password" id="signInEmail" name="password" placeholder="Enter New Password" />
+          <button class="btn green-btn">Reset Account</button>
+        </form>
+      </div>
+      <div style="margin-top: 6rem" class="sign-in-section">
+        <h1>Logo</h1>
+        <h2>Welcome to Leballo</h2>
+        <form method="POST" action="{% url 'accounts:login' %}">
+          {% csrf_token %}
+          <input type="email" id="signInEmail" name="email" placeholder="Email" />
+          <button class="btn green-btn">Reset Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <!-- <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script> -->
+
+
+
+  {% if debug is True %}
+  <script src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
+  <script src="{% static 'js/login.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle5.min.js' %}"></script>
+  {% else %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  {% endif %}
+
+  <script src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
+  <script src="{% static 'js/login.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle5.min.js' %}"></script>
+  <script src="{% static 'js/sweetalert2.all.min.js'  %}"></script>
+
+
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+
+  {% if messages %}
+  {% for message in messages %}
+  <script>
+    var tag_alert = '{{ message.tags }}';
+    if (tag_alert == 'alert-success') {
+      tag_alert = 'success';
+    }
+    if (tag_alert == 'alert-danger') {
+      tag_alert = 'error';
+    }
+    Swal.fire({
+      position: 'top-end',
+      icon: tag_alert,
+      title: '{{ message }}',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  </script>
+  {% endfor%}
+  {% endif%}
+</body>
+
+</html>

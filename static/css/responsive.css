@@ -1,0 +1,304 @@
+@media only screen and (max-width: 319px) {
+
+}
+
+/*end of 319 resolution screen*/
+
+@media only screen and (min-width: 320px) and (max-width: 575px) {
+
+    .cmp-dis-grid {
+        grid-template-columns: auto!important;
+        grid-row-gap: 25px;
+    }
+    #paypalLoginForm{
+        padding: 25px 20px !important;
+    }
+    .ctl-pos-cus-abl{
+        display: none;
+    }
+    .cmp-crd-tit-sub {
+        font-size: 28px !important;
+    }
+    /**/
+
+
+
+
+    .cmp-inu-lab label {
+        font-size: 14px!important;
+    }
+    .cmp-inu-lab input{
+        padding: 6px 14px !important;
+    }
+    /**/
+    .cmp-pad-txt-bot {
+        margin-top: 25px!important;
+        margin-bottom: 25px!important;
+    }
+    .cmp-pad-txt-bot p {
+        font-size: 13px!important;
+    }
+    .cmp-com-hdr-tit {
+        font-size: 20px!important;
+    }
+    .cmp-his-pad {
+        padding: 15px 15px!important;
+    }
+    .cmp-his-hdr-tit {
+
+        font-size: 18px!important;
+    }
+
+    .cmp-his-ser-blo {
+        -webkit-flex-direction:  column!important;
+        -ms-flex-direction:  column!important;
+        flex-direction: column!important;
+    }
+
+    .ctl-ser-inp-lft input{
+        margin-bottom: 15px;
+        border-radius: 0;
+    }
+    .ctl-ser-btn-rit button {
+        border-radius: 0!important;
+    }
+    .cmp-crd-blo{
+        padding-lefT: 0 !important;
+    }
+
+
+    .cmp-blo-tit-top {
+        margin-top: 16px;
+        margin-bottom: 15px !important;
+    }
+    .ctl-str-txt h4 strong {
+        font-size: 20px !important;
+    }
+    .cmp-crd-blo li{
+        padding: 15px 15px !important;
+    }
+    .ctl-shw-ent-txt p,.cmp-com-lis-lft p, .cmp-com-lis-rit p,.cmp-pag-txt-cus li a {
+        font-size: 15px!important;
+        text-align: center;
+    }
+    .cmp-blo-tit-top h5 {
+        font-size: 16px!important;
+    }
+    .cmp-bot-flx{
+        margin: 20px auto;
+    }
+
+
+
+
+
+    /**/
+
+    .ctl-cus-txt-col {
+        font-size: 10px !important;
+    }
+    .cmp-com-hdr-tit {
+        font-size: 15px !important;
+    }
+    .cmp-sec-pad-fou{
+        padding: 15px 15px !important;
+    }
+    .cmp-bor-rad {
+        margin-top: 55px !important;
+    }
+    .cmp-sen-lft{
+        margin-bottom: 30px;
+    }
+    .cmp-sub-btn{
+        width: 100%;
+    }
+    .ctl-sec-hdr strong {
+
+        font-size: 28px!important;
+    }
+    .ctl-sec-txt strong {
+
+        font-size: 16px!important;
+    }
+    .ctl-com-txt {
+        font-size: 15px!important;
+    }
+
+
+
+
+
+
+
+
+
+
+}
+
+/*end of 320 X 575 resolution screen*/
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+    .cmp-dis-grid {
+        grid-template-columns: auto!important;
+        grid-row-gap: 25px;
+    }
+    #paypalLoginForm{
+        padding: 25px 20px !important;
+    }
+    .ctl-pos-cus-abl{
+        display: none;
+    }
+    .cmp-crd-tit-sub {
+        font-size: 28px !important;
+    }
+    /**/
+    .cmp-dis-grid {
+        grid-template-columns: auto!important;
+        grid-row-gap: 25px;
+    }
+    /**/
+
+    .cmp-inu-lab label {
+        font-size: 14px!important;
+    }
+    .cmp-inu-lab input{
+        padding: 6px 14px !important;
+    }
+    /**/
+
+
+
+
+
+
+    .cmp-pad-txt-bot {
+        margin-top: 25px!important;
+        margin-bottom: 25px!important;
+    }
+    .cmp-pad-txt-bot p {
+        font-size: 13px!important;
+    }
+    .cmp-com-hdr-tit {
+        font-size: 20px!important;
+    }
+    .cmp-his-pad {
+        padding: 15px 15px!important;
+    }
+    .cmp-his-hdr-tit {
+
+        font-size: 18px!important;
+    }
+
+    .cmp-his-ser-blo {
+        -webkit-flex-direction:  column!important;
+        -ms-flex-direction:  column!important;
+        flex-direction: column!important;
+    }
+
+    .ctl-ser-inp-lft input{
+        margin-bottom: 15px;
+        border-radius: 0;
+    }
+    .ctl-ser-btn-rit button {
+        border-radius: 0!important;
+    }
+    .cmp-crd-blo{
+        padding-lefT: 0 !important;
+    }
+
+
+    .cmp-blo-tit-top {
+        margin-top: 16px;
+        margin-bottom: 15px !important;
+    }
+    .ctl-str-txt h4 strong {
+        font-size: 20px !important;
+    }
+    .cmp-crd-blo li{
+        padding: 15px 15px !important;
+    }
+    .ctl-shw-ent-txt p,.cmp-com-lis-lft p, .cmp-com-lis-rit p,.cmp-pag-txt-cus li a {
+        font-size: 15px!important;
+        text-align: center;
+    }
+    .cmp-blo-tit-top h5 {
+        font-size: 16px!important;
+    }
+    .cmp-bot-flx{
+        margin: 20px auto;
+    }
+
+
+    /**/
+    .ctl-cus-txt-col {
+        font-size: 10px !important;
+    }
+    .cmp-com-hdr-tit {
+        font-size: 15px !important;
+    }
+    .cmp-sec-pad-fou{
+        padding: 15px 15px !important;
+    }
+    .cmp-bor-rad {
+        margin-top: 55px !important;
+    }
+    .cmp-sen-lft{
+        margin-bottom: 30px;
+    }
+    .cmp-sub-btn{
+        width: 100%;
+    }
+    .ctl-sec-hdr strong {
+
+        font-size: 28px!important;
+    }
+    .ctl-sec-txt strong {
+
+        font-size: 16px!important;
+    }
+    .ctl-com-txt {
+        font-size: 15px!important;
+    }
+}
+
+/*end of 576 X 767 resolution screen*/
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .cmp-dis-grid {
+        grid-template-columns: auto auto!important;
+        grid-row-gap: 25px;
+    }
+    #paypalLoginForm{
+        padding: 25px 20px !important;
+    }
+    .ctl-pos-cus-abl{
+        display: none;
+    }
+    .cmp-crd-tit-sub {
+        font-size: 28px !important;
+    }
+    /**/
+}
+
+/*end of 768 X 991 resolution screen*/
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .cmp-dis-grid {
+        grid-template-columns: auto auto!important;
+        grid-row-gap: 25px;
+    }
+    #paypalLoginForm{
+        padding: 25px 20px !important;
+    }
+    .ctl-pos-cus-abl{
+        display: none;
+    }
+    .cmp-crd-tit-sub {
+        font-size: 28px !important;
+    }
+    /**/
+}
+
+/*end of 992 X 1199 resolution screen*/
+

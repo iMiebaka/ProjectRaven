@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %} Payment Cancelled {% endblock %}
+
+
+{% block page_content %}
+<section class="section mb-5">
+  <div class="container">
+    <p>Your payment was cancelled.</p>
+    <p><a href="{% url 'payments:subscription' %}">Go to Payment Page</a></p>
+
+  </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+
+<script>
+  setTimeout(function () {
+    location.href = "{% url 'payments:subscription' %}";
+  }, 3000)
+</script>
+{% endblock %}

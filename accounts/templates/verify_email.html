@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap5.min.css' %}" />
+
+  {% if debug is True %}
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap5.min.css' %}" />
+  {% else %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
+  {% endif %}
+
+
+  <title>Verfy Account</title>
+</head>
+
+<body>
+
+  <section id="loginSection" class="d-md-none my-auto">
+    <form id="loginForm" class="row rounded mx-auto my-auto mt-5" action="{% url 'accounts:verify_account' %}"
+      method="POST">
+      {% csrf_token %}
+      <h1>Verfy Account</h1>
+      <div class="mb-2 col-md-12">
+        <label for="exampleInputPassword1" class="form-label">Enter OTP</label>
+        <input type="text" name="text_otp" class="form-control" placeholder="Enter OTP" id="exampleInputPassword1"
+          required />
+      </div>
+      <button class="btn green-btn">verify</button>
+      <div class="mb-5">
+        <a href="{% url 'accounts:reset_account' %}">Reset Account</a>
+      </div>
+    </form>
+  </section>
+
+
+  <!-- LOGIN AND SIGN UP SWIPING -->
+  <div id="animLoginAndSignup" class="container">
+    <div class="w40 d-none d-md-block">
+      <div class="signInBox active">
+        <div class="text">
+          <h3>Welcome Back!</h3>
+          <p>
+            To keep connected with us please login with your personal info
+          </p>
+        </div>
+        <button class="btn sign-in-btn">sign in</button>
+      </div>
+      <div class="signOutBox">
+        <div class="text">
+          <h3>An OTP has been sent to your email</h3>
+          <p><a class="btn" href="{% url 'accounts:resend_otp' %}">Click to resend</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="w60">
+      <div class="new-account-section">
+        <h1>Create Account</h1>
+        <p>or use your email for registration</p>
+        <form method="POST" action="{% url 'accounts:signup' %}">
+          <input type="text" id="name" name="first_name" placeholder="First Name" />
+
+          <input type="text" id="last_name" name="last_name" placeholder="Last Name" />
+          <input type="email" id="email" placeholder="Email" />
+          <input type="text" id="instagram" name="instagram" placeholder="Instagram" />
+          <input type="text" id="password" name="password" placeholder="Mobile" />
+
+          <input type="password" id="password" placeholder="Password" />
+          <button class="btn green-btn">sign up</button>
+        </form>
+      </div>
+      <div style="margin-top: 6rem" class="sign-in-section">
+        <h1>Verfy Account</h1>
+        <form method="POST" action="{% url 'accounts:verify_account' %}">
+          {% csrf_token %}
+          <div class="mb-2 col-md-12">
+            <label for="exampleInputPassword1" class="form-label">Enter OTP</label>
+            <input type="text" name="text_otp" class="form-control" placeholder="Enter OTP" id="exampleInputPassword1"
+              required />
+          </div>
+          <button class="btn green-btn">verify</button>
+          <div class="mb-5">
+            <a href="{% url 'accounts:reset_account' %}">Reset Account</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <!-- <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script> -->
+
+
+
+  {% if debug is True %}
+  <script src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
+  <script src="{% static 'js/login.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle5.min.js' %}"></script>
+  {% else %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  {% endif %}
+
+  <script src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
+  <script src="{% static 'js/login.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle5.min.js' %}"></script>
+  <script src="{% static 'js/sweetalert2.all.min.js'  %}"></script>
+
+  <script>
+    $(".w40").addClass("active");
+    $(".sign-in-btn").addClass("active");
+    $(".sign-up-btn").removeClass("active");
+    $(".signInBox").removeClass("active");
+    $(".signOutBox").addClass("active");
+    $(".w40").removeClass("shift-left");
+    $(".w60").removeClass("shift-right");
+    $(".w60").addClass("active");
+    $(".new-account-section").addClass("active");
+    $(".sign-in-section").addClass("active");
+  </script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+
+
+  {% if messages %}
+  {% for message in messages %}
+  <script>
+    var tag_alert = '{{ message.tags }}';
+    if (tag_alert == 'alert-success') {
+      tag_alert = 'success';
+    }
+    if (tag_alert == 'alert-danger') {
+      tag_alert = 'error';
+    }
+    Swal.fire({
+      position: 'top-end',
+      icon: tag_alert,
+      title: '{{ message }}',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  </script>
+  {% endfor%}
+  {% endif%}
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+
+
+#bulkHistory{
+    background-color: white !important;
+}
+#search{
+    padding: 7px;
+    outline: none;
+}
+#searchBtn{
+    padding: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.562);
+    border-left: none;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+    color: white;
+    background-color: #ff4500;
+}
+.card{
+    border-style: dashed !important;
+}
+/* Container holding the image and the text */
+.cardImg{
+    position: relative;
+    text-align: center;
+    color: white;
+    height: 120px;
+    width: 80px;
+  
+}
+.cardImg img{
+    height: inherit;
+    width: inherit;
+}
+.bottom-left {
+    position: absolute;
+    bottom: 4px;
+    left: 10px;
+  }

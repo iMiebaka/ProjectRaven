@@ -1,0 +1,201 @@
+.form-check,
+#strip_btn {
+  /* margin-top: .1em; */
+  margin-bottom: 0.6em;
+  background-color: rgb(138, 43, 226);
+  color: white;
+}
+
+.form-check,
+#pay_later_btn {
+  background-color: #eb575b;
+  color: white;
+}
+
+#paypalCancelBtn {
+  position: absolute;
+  background-color: transparent !important;
+  color: black;
+  font-weight: bold;
+  right: 20px;
+  top: 15px;
+}
+
+#close_payment {
+  position: absolute;
+  background-color: transparent !important;
+  color: black;
+  font-weight: bold;
+  right: 20px;
+  top: 15px;
+}
+
+#continue_payment {
+  position: absolute;
+  background-color: transparent !important;
+  color: black;
+  font-weight: bold;
+  right: 20px;
+  top: 15px;
+}
+
+#notify_cancel {
+  font-weight: bold;
+  width: auto;
+  font-size: medium;
+}
+
+#paypalSubmitBtn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 5px 10px !important;
+  border: none;
+  cursor: pointer;
+  width: auto !important;
+}
+#continue_payment_btn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 5px 10px !important;
+  border: none;
+  cursor: pointer;
+  width: auto !important;
+}
+
+#paypalCancelBtnTwo {
+  position: absolute;
+  background-color: transparent !important;
+  color: black;
+  font-weight: bold;
+  right: 20px;
+  top: 15px;
+}
+.table{
+  width: auto;
+  margin-left: 1.5rem;
+  justify-content: center;
+}
+
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #ff4500;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #ff4500;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #ff4500;
+}
+
+.header-error {
+  display: grid;
+  place-items: center;
+}
+
+.header-error img {
+  margin: -3rem -3rem -5rem -3rem;
+  width: 30rem;
+}
+.header-error h1 {
+  font-size: 120px;
+  font-weight: bold;
+  margin: 0;
+  margin-top: 0px;
+  line-height: 1em;
+  margin-top: 45px;
+  color: #3e4348;
+}
+
+.header-error p {
+  margin-bottom: 45px !important;
+  color: #3e4348;
+}
+
+.header-error a {
+  background: #eb575b;
+  color: #fff !important;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(5, 33, 202, 0.2);
+  box-shadow: 0 2px 4px 0 rgba(5, 33, 202, 0.2);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 46px;
+  font-size: 0.9411764706rem;
+  outline: 0 !important;
+  padding: 0 1.7647058824rem;
+  text-align: center;
+  text-decoration: none !important;
+  border-radius: 24px;
+}
+.header-error a:hover {
+  transition: ease-in-out .3s;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.header-error img {
+  margin: 0 -3rem -5rem -3rem;
+  width: 30rem;
+}
+.header-error h1 {
+  font-size: 120px;
+  font-weight: bold;
+  margin: 0;
+  margin-top: 0px;
+  line-height: 1em;
+  margin-top: 45px;
+  color: #3e4348;
+}
+
+.header-error p {
+  margin-bottom: 45px !important;
+  color: #3e4348;
+}
+
+.header-error a {
+  background: #d36930;
+  color: #fff !important;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(5, 33, 202, 0.2);
+  box-shadow: 0 2px 4px 0 rgba(5, 33, 202, 0.2);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 46px;
+  font-size: 0.9411764706rem;
+  outline: 0 !important;
+  padding: 0 1.7647058824rem;
+  text-align: center;
+  text-decoration: none !important;
+  border-radius: 24px;
+}
+.header-error a:hover {
+  transition: ease-in-out .3s;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+}

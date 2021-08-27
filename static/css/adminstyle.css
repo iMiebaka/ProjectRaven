@@ -1,0 +1,58 @@
+#header {
+  background: #ff4500;
+}
+#user-tools {
+  color: black;
+}
+
+#branding h1 {
+  color: black;
+}
+
+.module caption,
+.inline-group h2 {
+  background: #ff4500;
+}
+
+div.breadcrumbs {
+  background: #ff44007e;
+  color: black;
+}
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button {
+  background: #ff4500;
+  transition: background 2s;
+}
+a:link,
+a:visited {
+  color: rgb(79, 78, 78);
+}
+
+.submit-row input.default {
+  background: #ff4500;
+}
+
+#header a:link,
+#header {
+  color: black;
+}
+div.breadcrumbs a {
+  color: black;
+}
+
+#changelist .actions .button {
+  background: #ff4500;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* box-shadow: 0 -15px 20px -10px rgb(0 0 0 / 15%) inset; */
+  cursor: pointer;
+  height: 24px;
+  line-height: 1;
+  padding: 4px 8px;
+  margin: 0;
+  color: #333;
+}

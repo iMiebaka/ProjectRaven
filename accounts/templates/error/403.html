@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/others.css' %}" />
+{% endblock %}
+
+{% block page_content %}
+
+<div class="header-error">
+    <img src="{% statics 'images/1492692447-14email_83537.png' %}" alt="Wrong Request">
+
+    <h1>403</h1>
+    <p>We couldn't complete you request...</p>
+    <a href="{% url 'mailer:send_email' %}">Go to Homepage</a>
+</div>
+
+{% endblock %}
+

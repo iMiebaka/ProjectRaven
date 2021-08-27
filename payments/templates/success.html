@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %} Payment Successfull {% endblock %}
+
+
+{% block page_content %}
+<section class="section mb-5">
+  <div class="container">
+    <p>Your payment succeeded.</p>
+    <p><a href="/">Go to home</a></p>
+  </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  setTimeout(function () {
+    location.href = "{% url 'mailer:send_email' %}";
+  }, 3000)
+</script>
+{% endblock %}

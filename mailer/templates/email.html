@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/email.css' %}" />
+{% if debug is True %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+<link rel="stylesheet" href="{% static 'css/boxicons-2.0.7/css/boxicons.min.css' %}" />
+{% else %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+{% endif %}
+{% endblock %}
+
+{% block title %} Email {% endblock %}
+
+
+{% block page_content %}
+
+<section id="emailSection" class="bg-light cmp-bor-rad cmp-sec-pad-fou">
+  <div class="d-flex justify-content-center cmp-hdr-mar-bot">
+    <p class="cmp-com-hdr-tit">Send Emails</p>
+    <p class="ms-auto ctl-cus-txt-col" id="status_text"></p>
+  </div>
+  <!-- drag drop boxes -->
+  <form class="row rounded" id="send_email" class="row rounded" method="POST" action="{% url 'mailer:send_email'%}"
+    enctype="multipart/form-data">
+    <p id="status_email_amount" class="h5 justify-content-center align-items-center">Email Left: {{email_amount}}</p>
+
+    {% csrf_token %}
+    <div id="sender_zone" class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+      <div class="cmp-sen-lft" ondrop="upload_file_sender(event)" ondragover="return false">
+        <p class="ctl-com-txt"><strong id="sender-hint"></strong></p>
+        <p class="ctl-com-txt">Drag here to upload</p>
+        <p class="ctl-com-txt">or</p>
+        <p class="h5 ctl-sec-txt"><strong>choose file</strong></p>
+        <p class="display-4 h5 ctl-sec-hdr"><strong>Sender</strong></p>
+        <p class="h5 ctl-sec-txt"> <input type="button" onclick="file_explorer_sender();" class="btn btn-primary"
+            value="Select File"></p>
+        <input type="file" class="email-list" name="sender_email" style="display: none;" id="sender-file"
+          accept=".xlsx, .csv">
+      </div>
+    </div>
+    <div id="reciever_zone" class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+      <div class="cmp-rec-rit" ondrop="upload_file_reciever(event)" ondragover="return false">
+        <p class="ctl-com-txt"><strong id="reciever-hint"></strong></p>
+        <p class="ctl-com-txt">Drag here to upload</p>
+        <p class="ctl-com-txt">or</p>
+        <p class="h5 ctl-sec-txt"><strong>choose file</strong></p>
+        <p class="display-4 h5 ctl-sec-hdr"><strong>Reciever</strong></p>
+        <p class="h5 ctl-sec-txt"> <input type="button" onclick="file_explorer_reciever();" class="btn btn-primary"
+            value="Select File"></p>
+        <input type="file" class="email-list" style="display: none;" name="reciever_email" id="reciever-file"
+          accept=".xlsx, .csv">
+      </div>
+    </div>
+    <input type="text" class="form-control" id="cache_checker" name="cache_checker" value="{{cache_checker}}" hidden />
+
+    <div class="col-md-12 mb-3 mt-5 cmp-inp-lab">
+      <label for="exampleInputEmail1" class="form-label ">Subject</label>
+      <input type="text" class="" id="exampleInputEmail1" placeholder="Enter subject" name="email_subject" required />
+    </div>
+    <div class="col-md-12 mb-3 cmp-inp-lab">
+      <label for="exampleInputMessage" class="form-label ">Message</label>
+      <textarea id="exampleInputMessage" rows="5" class="" aria-label="With textarea" style="resize: none"
+        name="email_body" required></textarea>
+    </div>
+
+    <div class="cmp-sub-inf-bot">
+      <button type="submit" class="col-md-2 cmp-sub-btn submitBtn">Send <svg width="26" height="26" viewBox="0 0 26 26"
+          fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M9.89911 16.5563L1.99962 13.7279L19.0915 7.36396L12.7275 24.4558L9.89911 16.5563ZM9.89911 16.5563L12.7275 13.7279"
+            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+  </form>
+</section>
+{% endblock %}
+
+<!--Container Main end-->
+
+
+
+{% block javascript %}
+
+<script>
+  const SEND_EMAIL = "{% url 'mailer:send_email'%}"
+  const TRACK_SENT_MAIL = "{% url 'mailer:track_progress' %}"
+</script>
+
+<script>
+  var send_blob;
+  var new_cache = '{{cache_checker}}'
+  var reciever_blob;
+
+  document.getElementById('sender_zone').style.borderColor = "blue";
+
+  function upload_file_sender(e) {
+    e.preventDefault();
+    send_blob = e.dataTransfer.files[0];
+    document.getElementById('sender-hint').innerText = `${e.dataTransfer.files[0].name}`;
+  }
+
+  function upload_file_reciever(e) {
+    e.preventDefault();
+    reciever_blob = e.dataTransfer.files[0];
+    document.getElementById('reciever-hint').innerText = `${e.dataTransfer.files[0].name}`;
+  }
+
+  function file_explorer_sender() {
+    document.getElementById('sender-file').click();
+    document.getElementById('sender-file').onchange = function () {
+      send_blob = document.getElementById('sender-file').files[0];
+      console.log(send_blob);
+      document.getElementById('sender-hint').innerText = `${document.getElementById('sender-file').files[0].name}`;
+    };
+  }
+
+  function file_explorer_reciever() {
+    document.getElementById('reciever-file').click();
+    document.getElementById('reciever-file').onchange = function () {
+      // document.getElementById('reciever-file').files[0];
+      reciever_blob = document.getElementById('reciever-file').files[0];
+      document.getElementById('reciever-hint').innerText = `${document.getElementById('reciever-file').files[0].name}`;
+    };
+  }
+  $("#send_email").on('submit', function (e) {
+    e.preventDefault();
+    console.log(reciever_blob.length);
+    if (send_blob == undefined) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        title: 'Sender Email list is missing',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+    else if (reciever_blob == undefined) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'info',
+        title: 'Reciever Email list is missing',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+
+    else {
+      console.log(send_blob);
+      var form_data = new FormData();
+      form_data.append('sender_email', send_blob)
+      form_data.append('cache_checker', new_cache)
+      form_data.append('reciever_email', reciever_blob)
+      form_data.append('email_subject', document.getElementById('exampleInputEmail1').value)
+      form_data.append('email_body', document.getElementById('exampleInputMessage').value)
+      var i = null
+      $.ajax({
+        type: 'POST',
+        url: SEND_EMAIL,
+        headers: {
+          // "content-type": "multipart/form-data"
+          "X-CSRFToken": '{{csrf_token}}',
+        },
+        data: form_data,
+        dataType: 'json',
+        contentType: false,
+        cache: false,
+        processData: false,
+        beforeSend: function () {
+          $('.submitBtn').attr("disabled", "disabled");
+          $('.email-list').attr("disabled", "disabled");
+          $('#send_email').css("opacity", ".5");
+          i = setInterval(function () {
+            track_progress();
+          }, 500);
+        },
+        success: function (response) {
+          if (response.data == 'success') {
+            $('#send_email').css("opacity", "1");
+            // $('#send_email').reset()
+            $('.submitBtn').removeAttr("disabled");
+            $('.email-list').removeAttr("disabled");
+            clearInterval(i);
+            document.getElementById('status_text').innerHTML = response.cache_variable
+            document.getElementById('status_email_amount').innerHTML = `Email Left: ${response.email_amount}`
+            document.getElementById('cache_checker').value = response.cache_checker
+            new_cache = response.cache_checker
+          }
+          else {
+            document.getElementById('status_email_amount').innerHTML = `Email Left: ${response.email_amount}`
+            document.getElementById('status_text').value = response.cache_variable
+            $('#send_email').css("opacity", "1");
+            // $('#send_email').reset()
+            $('.submitBtn').removeAttr("disabled");
+            $('.email-list').removeAttr("disabled");
+            clearInterval(i);
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: response.message,
+              showConfirmButton: false,
+              timer: 1500
+            })
+          }
+        }
+      });
+    }
+  });
+
+  function track_progress() {
+    $.ajax({
+      type: 'POST',
+      url: TRACK_SENT_MAIL,
+      dataType: 'json',
+      data: {
+        cache_variable: $('#cache_checker').val()
+      },
+      success: function (response) {
+        console.log(response.cache_variable);
+        document.getElementById('status_text').innerHTML = response.cache_variable
+      }
+    });
+  }
+</script>
+{% endblock %}

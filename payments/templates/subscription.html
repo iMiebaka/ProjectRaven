@@ -1,0 +1,579 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %} Payment {% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/others.css' %}" />
+<link rel="stylesheet" href="{% static 'css/email.css' %}" />
+<link rel="stylesheet" href="{% static 'css/subscription.css' %}" />
+
+{% endblock %}
+
+
+{% block page_content %}
+<!-- SUBSCRIPTION SECTION START -->
+<section id="subscriptionSection" class="px-3 pt-3 pb-5 cmp-bor-rad">
+  <div class="col-md-12 mb-4">
+    <div class="cmp-com-hdr-tit">Upgrade your membership</div>
+  </div>
+  <div id="subscriptionCards" class="cmp-dis-grid">
+    <div class="card mx-auto cmp-grd-col" style="">
+      <div style="height: 10px; background-color: rgb(255, 195, 195)" class="w-100"></div>
+      <div class="card-body">
+        <p class="card-text packageName cmp-crd-hdr-top cmp-col-ros-txt">
+          Basic
+        </p>
+        <h3 class="card-title cmp-crd-tit-sub">$1.00</h3>
+        <p class="text-muted cmp-crd-sec-sub">Free</p>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name"><span class="cmp-col-ros-txt">Up to 10</span> sell per month</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished fact</span>
+        </div>
+      </div>
+      {% if current_payment_name.Basic %}
+      <a href="#" onclick="cancel_payment({{payment_id.Basic}}, 'Basic')"
+        class="btn btn-outline-secondary mb-3 w-75 mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
+        Unsubscribe
+      </a>
+      {% else %}
+      <a href="#" onclick="make_payment({{payment_id.Basic}}, {{payment_amount.Basic}})"
+        class="btn btn-primary mb-3 w-75 mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
+        Subscribe
+      </a>
+      {% endif %}
+    </div>
+    <div class="card mx-auto cmp-grd-col" style="">
+      <div style="height: 10px; background-color: rgb(255, 130, 130)" class="w-100"></div>
+      <div class="card-body">
+        <p class="card-text packageName cmp-crd-hdr-top cmp-col-red-txt">
+          Rookie
+        </p>
+        <h3 class="card-title cmp-crd-tit-sub">$1.99</h3>
+        <p class="text-muted cmp-crd-sec-sub">Free</p>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name"><span class="cmp-col-red-txt">Up to 50</span> sell per month</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished fact</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long</span>
+        </div>
+      </div>
+      {% if current_payment_name.Rookie %}
+      <a href="#" onclick="cancel_payment({{payment_id.Rookie}},'Rookie')"
+        class="btn btn-outline-secondary mb-3 w-75 mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
+        Unsubscribe
+      </a>
+      {% else %}
+      <a href="#" onclick="make_payment({{payment_id.Rookie}}, {{payment_amount.Rookie}})"
+        class="btn btn-primary mb-3 w-75 mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
+        Subscribe
+      </a>
+      {% endif %}
+    </div>
+    <div class="card mx-auto cmp-grd-col" style="">
+      <div style="height: 10px; background-color: rgb(255, 101, 101)" class="w-100"></div>
+      <div class="card-body">
+        <p class="card-text packageName cmp-crd-hdr-top cmp-col-gre-txt">
+          All Star
+        </p>
+        <h3 class="card-title cmp-crd-tit-sub">$4.99</h3>
+        <p class="text-muted cmp-crd-sec-sub">Free</p>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name"><span class="cmp-col-gre-txt">Up to 50</span> sell per month</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished fact</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long established</span>
+        </div>
+      </div>
+      {% if current_payment_name.All_Star %}
+      <a href="#" onclick="cancel_payment({{payment_id.All_Star}}, 'All_Star')"
+        class="btn btn-outline-secondary mb-3 w-75 mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
+        Unsubscribe
+      </a>
+      {% else %}
+      <a href="#" onclick="make_payment({{payment_id.All_Star}}, {{payment_amount.All_Star}})"
+        class="btn btn-primary mb-3 w-75 mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
+        Subscribe
+      </a>
+      {% endif %}
+    </div>
+    <div class="card mx-auto cmp-grd-col" style="">
+      <div style="height: 10px; background-color: rgb(255, 32, 32)" class="w-100 cmp-zin-cus"></div>
+      <div class="card-body cmp-pos-cus-rel">
+        <p class="card-text packageName cmp-crd-hdr-top cmp-col-com-txt">
+          MVC
+        </p>
+        <h3 class="card-title cmp-crd-tit-sub">$9.99</h3>
+        <p class="text-muted cmp-crd-sec-sub">Free</p>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name"><span class="cmp-col-com-txt">Up to 50</span> sell per month</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished fact</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long established</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished</span>
+        </div>
+
+        <div class="ctl-pos-cus-abl">
+          <div class="ctl-rot-txt">
+            <h3>Most Popular</h3>
+          </div>
+        </div>
+      </div>
+      {% if current_payment_name.MVC %}
+      <a href="#" onclick="cancel_payment({{payment_id.MVC}}, 'MVC')"
+        class="btn btn-outline-secondary mb-3 w-75 mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
+        Unsubscribe
+      </a>
+      {% else %}
+      <a href="#" onclick="make_payment({{payment_id.MVC}}, {{payment_amount.MVC}})"
+        class="btn btn-primary mb-3 w-75 mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
+        Subscribe
+      </a>
+      {% endif %}
+    </div>
+    <div class="card mx-auto cmp-grd-col" style="">
+      <div style="height: 10px; background-color: rgb(107, 0, 0)" class="w-100"></div>
+      <div class="card-body">
+        <p class="card-text packageName cmp-crd-hdr-top cmp-col-com-txt">
+          HOF
+        </p>
+        <h3 class="card-title cmp-crd-tit-sub">$19.99</h3>
+        <p class="text-muted cmp-crd-sec-sub">Free</p>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name"><span class="cmp-col-com-txt">Up to 50</span> sell per month</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished fact</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long established</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is a long stablished</span>
+        </div>
+        <div class="my-3 cmp-sub-txt-bot">
+          <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M4.24675 6.76892L10.7022 0.313477L11.6846 1.29588L4.24675 8.73373L0.282227 4.7692L1.26463 3.7868L4.24675 6.76892Z"
+              fill="#2E3C54" />
+          </svg>
+
+          <span class="nav_name">It is an established</span>
+        </div>
+      </div>
+      {% if current_payment_name.HOF %}
+      <a href="#" onclick="cancel_payment({{payment_id.HOF}},'HOF')" class="btn btn-outline-secondary mb-3 w-75 mx-auto"
+        data-toggle="modal" data-target="#exampleModalCenter">
+        Unsubscribe
+      </a>
+      {% else %}
+      <a href="#" onclick="make_payment({{payment_id.HOF}}, {{payment_amount.HOF}})"
+        class="btn btn-primary mb-3 w-75 mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
+        Subscribe
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+<!-------Paypal login form popup modal------------->
+
+<div id="id01" class="modal">
+  <form id="paypalLoginForm" class="modal-content animate " action="/login" method="post">
+    <div class="cmp-pop-wid">
+      <div class="imgcontainer d-none">
+        <img src="Login.jpg" alt="Avatar" class="avatar" style="width: 10%" />
+      </div>
+
+      <a id="paypalCancelBtn" type="button" onclick="document.getElementById('id01').style.display='none'"
+        class="ctl-clo-ico"><svg width="46" height="31" viewBox="0 0 46 31" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.549805 15.1528C0.549805 6.78415 7.33394 0 15.7026 0H45.6715V30.3056H15.7026C7.33395 30.3056 0.549805 23.5215 0.549805 15.1528Z"
+            fill="#2E3C54" fill-opacity="0.15" />
+          <circle cx="17.0496" cy="15.153" r="11.1121" fill="#2E3C54" fill-opacity="0.2" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.2055 15.2126L21.8899 18.897L21.0711 19.7158L17.3867 16.0314L13.7023 19.7158L12.8835 18.897L16.568 15.2126L12.8835 11.5282L13.7023 10.7094L17.3867 14.3939L21.0711 10.7094L21.8899 11.5282L18.2055 15.2126Z"
+            fill="#2E3C54" fill-opacity="0.64" />
+        </svg>
+      </a>
+
+      <button id="strip_btn" class="btn mt-2">
+        Stripe
+      </button>
+      <form method="POST" action="{% url 'payments:delay_payment' %}">
+        {% csrf_token %}
+        <button id="pay_later_btn" class="btn mt-1">
+          Pay Later
+        </button>
+      </form>
+      <div id="paypal-button-container" class="mt-2"></div>
+
+      <!-- <div class="cmp-log-cen-blo">
+        <button id="paypalSubmitBtn" class="ctl-lon-cen-btn" type="submit">
+          <b>Login</b>
+        </button>
+      </div> -->
+    </div>
+  </form>
+</div>
+
+
+
+<div id="id02" class="modal">
+  <form id="" class="modal-content animate " action="{% url 'payments:cancel_subscription' %}" method="post">
+    <div class="cmp-pop-wid">
+      <div class="imgcontainer d-none">
+        <img src="Login.jpg" alt="Avatar" class="avatar" style="width: 10%" />
+      </div>
+      <a id="paypalCancelBtnTwo" type="button" onclick="document.getElementById('id02').style.display='none'"
+        class="ctl-clo-ico"><svg width="46" height="31" viewBox="0 0 46 31" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.549805 15.1528C0.549805 6.78415 7.33394 0 15.7026 0H45.6715V30.3056H15.7026C7.33395 30.3056 0.549805 23.5215 0.549805 15.1528Z"
+            fill="#2E3C54" fill-opacity="0.15" />
+          <circle cx="17.0496" cy="15.153" r="11.1121" fill="#2E3C54" fill-opacity="0.2" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.2055 15.2126L21.8899 18.897L21.0711 19.7158L17.3867 16.0314L13.7023 19.7158L12.8835 18.897L16.568 15.2126L12.8835 11.5282L13.7023 10.7094L17.3867 14.3939L21.0711 10.7094L21.8899 11.5282L18.2055 15.2126Z"
+            fill="#2E3C54" fill-opacity="0.64" />
+        </svg>
+      </a>
+      {% csrf_token %}
+      <p id="notify_cancel">Are yu sure you want to Unsubscribe?</p>
+      <input class="form-control col-md-6" type="text" placeholder="CSV" name="id_val" id="payment_id" required
+        hidden />
+
+      <button id="" class="btn btn-danger mt-3 mb-3" type="submit">
+        <b>Cancel Subscription</b>
+      </button>
+
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}
+
+
+<!--Container Main end-->
+
+<!-- Include the PayPal JavaScript SDK -->
+{% block javascript %}
+<script defer>
+  let purchase_option = null
+  let purchase_cost = null
+  const PAYPAL_CLIENT_ID = '{{PAYPAL_CLIENT_ID}}'
+
+</script>
+<script
+  src="https://www.paypal.com/sdk/js?client-id=AWeyyf9_BYLCiR6IdNKbYILblV5g8V6Gri5Pry-uq1rGBIPZ3AwzMmzRi-PajsDqp12nGrRHQZV55tjN&currency=USD"></script>
+<script>
+  // Render the PayPal button into #paypal-button-container
+  paypal.Buttons({
+
+    // Set up the transaction
+    createOrder: function (data, actions) {
+      console.log(actions.order.create);
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: purchase_cost
+          }
+        }]
+      });
+      console.log(actions.order);
+    },
+    onApprove: function (data, actions) {
+      return actions.order.capture().then(function (details) {
+        // Show a success message to the buyer
+        alert('Transaction completed by ' + details.payer.name.given_name + '!');
+        complete_paypal(details)
+      });
+    }
+  }).render('#paypal-button-container');
+
+</script>
+<script defer>
+  const stripe_config = "{% url 'payments:stripe_config' %}"
+  const create_checkout_session = "{% url 'payments:create_checkout_session' %}"
+  const csrf_token = '{{csrf_token}}'
+</script>
+<script>
+
+  function cancel_payment(payment_id, notify_cancel) {
+    document.getElementById('id02').style.display = 'block'
+    document.getElementById('payment_id').value = payment_id
+    notify_cancel = `Do you want to cancel ${notify_cancel} plan?`
+    document.getElementById('notify_cancel').innerHTML = notify_cancel
+  }
+
+  function make_payment(payment_cost, payment_id) {
+    document.getElementById('id01').style.display = 'block'
+    purchase_option = payment_id
+    purchase_cost = payment_cost
+    console.log(purchase_cost);
+    console.log(purchase_option);
+  }
+
+  function complete_paypal(details) {
+    url = "{% url 'payments:complete_paypal' %}"
+    const options = {
+      method: "POST",
+      body: JSON.stringify(
+        {
+          'sub_type': purchase_option,
+          'details_val': JSON.stringify(details)
+        },
+
+      ),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "X-CSRFToken": csrf_token,
+      },
+    };
+    fetch(url, options)
+      .then((result) => {
+        return result.json();
+      })
+      .then((data) => {
+        window.location.reload();
+      })
+      .then((err) => {
+        console.log(err);
+      })
+  }
+</script>
+
+<script src="{% static 'js/subscription.js' %}"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+
+{% endblock %}
