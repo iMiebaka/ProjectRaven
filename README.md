@@ -1,6 +1,14 @@
-<h1 align="center">Email Sender Using Javascript, Python, Strip, Paypal, and Redis</h1>
+<h1 align="center">Email Sender Using Javascript, Python, Stripe, Paypal, and Redis</h1>
 
-<p align="center"> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.djangoproject.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-original.svg" alt="django" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> </p>
+<p align="center"> 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> 
+<a href="https://www.djangoproject.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-original.svg" alt="django" width="40" height="40"/> </a> 
+<a href="https://www.stripe.com" target="_blank"> <img src="https://www.svgrepo.com/show/342264/stripe.svg" alt="stripe-payment" width="40" height="40"/> </a> 
+<a href="https://www.paypal.com" target="_blank"> <img src="https://www.svgrepo.com/download/303257/paypal-logo.svg" alt="paypal" width="40" height="40"/> </a> 
+<a href="https://www.ubuntupit.com/how-to-install-and-configure-redis-on-linux-system/" target="_blank"> <img src="https://www.svgrepo.com/show/303460/redis-logo.svg" alt="python" width="40" height="40"/> </a> 
+</p>
+
+
 <p align="center"><img width="100%" src="https://github.com/iMiebaka/ProjectRaven/blob/main/homepage.png" alt="send_email"></p>
 
 - This web app lets you send email(s) more than 200 recievers. Some email services will block you, but you can also add more sender emails so the email service wouldn't flag your account for spamming.
