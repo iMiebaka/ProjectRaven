@@ -90,11 +90,13 @@ Before you are able to send mail, you have to be on an active subscription plan,
         </tr>
     </thread>
     <tbody>
-        <tr>ujanet@kentel.buzz</tr>
-        <tr>1111@gmail.com</tr>
-        <tr>2222@gmail.com</tr>
-        <tr>3333@gmail.com</tr>
-        <tr>4444@gmail.com</tr>
+        <tr>
+            <td>ujanet@kentel.buzz</td>
+            <td>1111@gmail.com</td>
+            <td>2222@gmail.com</td>
+            <td>3333@gmail.com</td>
+            <td>4444@gmail.com</td>
+        </tr>
     <tbody>
 </table>
 
