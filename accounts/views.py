@@ -137,8 +137,6 @@ def admin_settings(request):
         page_length = request.GET.get('page_length', 10)
         search = request.GET.get('search', '')
         page_value = {}
-        print(page)
-        print(search)
         if len(search) > 0:
             post = Profile.objects.filter(user__first_name__icontains=search) | Profile.objects.filter(user__last_name__icontains=search) | Profile.objects.filter(user__username__icontains=search)
             # post = [i.id for i in post]
@@ -147,7 +145,6 @@ def admin_settings(request):
             post = PaymentHistory.objects.all().order_by('-created_on') 
 
         page_value['total'] = post.count()
-        print(post[:11].count())
         paginator = Paginator(post[:page_length], page_length)
         try:
             posts = paginator.page(page)
@@ -266,7 +263,7 @@ def signup(request):
                 user.is_active = False
                 user.save()
                 add_number = Profile.objects.get(user=user)
-                add_number.phone_number = phone_number
+                add_number.mobile = phone_number
                 add_number.instagram = instagram
                 add_number.save()
             except:
@@ -490,7 +487,6 @@ def get_more_history(request):
                 "data": data,
                 "page_value": page_value,
                 "move_over": posts.has_next()
-
             }
             return JsonResponse(content)
 

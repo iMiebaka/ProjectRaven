@@ -11,6 +11,8 @@
 sudo apt update
 sudo apt-get install redis-server python-dev3 python3-pip git
 redis-cli -v #verfiy the version
+systemctl start redis #start redis
+sudo systemctl enable redis #run redis on boot up
 ```
 
 ## Download this code to your machine
@@ -70,7 +72,6 @@ celery -A mailer_system beat -l INFO
 
 - <a href="http://localhost:8000" target="_b" rel="noopener noreferrer"> Open the app on localhost</a>
 
-
 ## Preparing the Sender and Reciever Document
 
 Before you are able to send mail, you have to be on an active subscription plan, and payments can be made either through strip, paypal or credit/debit card
@@ -81,19 +82,40 @@ Before you are able to send mail, you have to be on an active subscription plan,
 
 <br>
 <strong>Reciever Email Document Template</strong>
-|email|
-|------|
-|ujanet@kentel.buzz|
-|1111@gmail.com|
-|2222@gmail.com|
-|3333@gmail.com|
-|4444@gmail.com|
+
+<table>
+    <thread>
+        <tr>
+            <th>email</th>
+        </tr>
+    </thread>
+    <tbody>
+        <tr>
+            <td>ujanet@kentel.buzz</td>
+            <td>1111@gmail.com</td>
+            <td>2222@gmail.com</td>
+            <td>3333@gmail.com</td>
+            <td>4444@gmail.com</td>
+        <tr>
+    <tbody>
+</table>
 
 <br>
 <strong>Sender Email and Password Document Template</strong>
-|email,password|
-|---------------|
-|d360@gmail.com,XXXXXX|
+<table>
+    <thread>
+        <tr>
+            <th>email</th> 
+            <th>password</th>
+        </tr>
+    </thread>
+    <tbody>
+        <tr>
+            <td>d360@gmail.com</td>
+            <td>XXXXXX</td>
+        </tr>
+    </tbody>
+</table>
 
 - You can have as many sender and receiver emails, the backend algorithm is optimized to handled the requst properly.
 
@@ -102,5 +124,6 @@ Before you are able to send mail, you have to be on an active subscription plan,
 I recommend you run this code on a linux VPS like
 <a href="https://digitalocean.com" target="_b" rel="noopener noreferrer">Digital Ocean</a> or
 <a href="https://linode.com" target="_b" rel="noopener noreferrer">Linode</a>
-This kind of vps provide more flexibility especially for services like Redis, and Srtipe Webhook
-# ProjectRaven
+This kind of vps provide more flexibility especially for services like Redis, and Stripe Webhook.
+<br>
+<strong>NB:</strong> Before deploying this projects to production, ensure you comment the EMAIL_BACKEND for development and uncomment the EMAIL_BACKEND for deployment. This will enable use the smtp instead of displaying emails on the console.

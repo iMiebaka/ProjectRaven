@@ -152,11 +152,11 @@ STATICFILES_DIRS = [Path(BASE_DIR).joinpath('static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CELERY_BEAT_SCHEDULE = {
-    # 'check-subscription': {
-    #     'task': 'payments.tasks.check_subscription',
-    #     'schedule': 5, #Set this to to 3600 in development
-    #     'args': ()
-    # },
+    'check-subscription': {
+        'task': 'payments.tasks.check_subscription',
+        'schedule': 5, #Set this to to 3600 in development
+        'args': ()
+    },
     'check-email-expiration': {
         'task': 'payments.tasks.delete_emails',
         'schedule': 5, #Set this to to 3600 in development
@@ -188,9 +188,6 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # During deployment
 EMAIL_FILE_PATH = [Path(BASE_DIR).joinpath('sent_emails')]
-
-#https://stackoverflow.com/questions/13590518/emailbackend-for-sending-email-through-multiple-smtp-in-django
-#https://realpython.com/python-send-email/

@@ -42,7 +42,6 @@ def send_email(request):
             if email_amount < 1 or request.user.profile.subscribed is False:
                 profile_init.subscribed = False
                 profile_init.save()
-                print(profile_init.subscribed)
                 content = {
                     'data': 'error',
                     'email_amount': email_amount,

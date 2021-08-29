@@ -30,7 +30,6 @@ def check_subscription():
 def delete_emails():
     emails = EmailSent.objects.all()
     for email in emails:
-        print(email)
         check_date = email.created_on
         check_date = check_date + timedelta(days=expiration_date)
         current_date = timezone.now()
