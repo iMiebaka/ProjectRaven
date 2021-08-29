@@ -1,4 +1,5 @@
 /settings.ini
+.env
 /__pycache__
 /db.sqlite3
 accounts/migrations/0001_initial.py
