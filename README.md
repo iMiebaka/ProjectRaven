@@ -1,7 +1,7 @@
 <h1 align="center">Email Sender Using Javascript, Python, Stripe, Paypal, and Redis</h1>
 
 <p align="center" style="display:flex;justify-content:space-around;"> 
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="60"/> </a> 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> 
 <a href="https://www.djangoproject.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-original.svg" alt="django" width="40" height="40"/> </a> 
 <a href="https://www.stripe.com" target="_blank"> <img src="https://www.svgrepo.com/show/342264/stripe.svg" alt="stripe-payment" width="40" height="40"/> </a> 
 <a href="https://www.paypal.com" target="_blank"> <img src="https://www.svgrepo.com/show/176751/paypal-social-media.svg" alt="paypal" width="40" height="40"/> </a> 
