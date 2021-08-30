@@ -65,7 +65,7 @@ pip install -r requirements.txt
 python manage.py runserver 0:8000
 ```
 
-- Run Celery Celery Beat on two seperate terminal respectively
+- Run Celery Celery Beat on two seperate terminal respectively (Ensure the virtual enviroment is activated)
 
 ```shell
 celery -A mailer_system worker -l INFO
@@ -77,6 +77,8 @@ celery -A mailer_system beat -l INFO
 ```shell
 ./stripe listen --forward-to localhost:8000/payments/webhook/
 ```
+<br>
+NB: All the terminal command above must be ran in the virtual enviroment
 
 - <a href="http://localhost:8000" target="_b" rel="noopener noreferrer"> Open the app on localhost</a>
 
@@ -142,4 +144,4 @@ I recommend you run this code on a linux VPS like
 <a href="https://linode.com" target="_b" rel="noopener noreferrer">Linode</a>
 This kind of vps provide more flexibility especially for services like Redis, and Stripe Webhook.
 <br>
-<strong>NB:</strong> Before deploying this projects to production, ensure you comment the EMAIL_BACKEND for development and uncomment the EMAIL_BACKEND for deployment. This will enable use the smtp instead of displaying emails on the console.
+<strong>NB:</strong> Before deploying this project to production, ensure you comment the EMAIL_BACKEND for development and uncomment the EMAIL_BACKEND for deployment. This will enable use the smtp instead of displaying emails on the console.

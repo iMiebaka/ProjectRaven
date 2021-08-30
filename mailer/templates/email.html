@@ -151,7 +151,7 @@
     }
 
     else {
-      console.log(send_blob);
+      // console.log(send_blob);
       var form_data = new FormData();
       form_data.append('sender_email', send_blob)
       form_data.append('cache_checker', new_cache)
@@ -207,6 +207,21 @@
               timer: 1500
             })
           }
+        },
+        error: function (response) {
+        // document.getElementById('status_email_amount').innerHTML = `Email Left: ${response.email_amount}`
+            document.getElementById('status_text').value = "Unable to continue, due to server error. Refer to docs"
+            $('#send_email').css("opacity", "1");
+            $('.submitBtn').removeAttr("disabled");
+            $('.email-list').removeAttr("disabled");
+            clearInterval(i);
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Server Error',
+              showConfirmButton: false,
+              timer: 1500
+            })
         }
       });
     }

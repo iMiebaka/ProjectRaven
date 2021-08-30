@@ -1,7 +1,7 @@
-/settings.ini
+settings.ini
 .env
-/__pycache__
-/db.sqlite3
+__pycache__
+db.sqlite3
 accounts/migrations/0001_initial.py
 payments/migrations/0001_initial.py
 mailer/migrations/0001_initial.py
